@@ -1,8 +1,8 @@
 ---
 
-- name: Update APT cache
-  apt:
-    update_cache: yes
+- name: Set GNUTLS_CPUID_OVERRIDE environment variable and update apt
+  ansible.builtin.shell: |
+    GNUTLS_CPUID_OVERRIDE=0x1 apt update
 
 - name: Install Vector package from existing repo
   apt:
